@@ -1,0 +1,13 @@
+ID,title,department_ID
+1,Captain,1
+2,Navigator,1
+3,Helmsman,1
+4,Egineer,2
+5,Weapons Specialist,2
+6,Security Officer,2
+7,Scientist,3
+8,Lab Technician,3
+9,Explorer,4
+10,Scout,4
+11,Communications Officer,5
+12,Translator,5
