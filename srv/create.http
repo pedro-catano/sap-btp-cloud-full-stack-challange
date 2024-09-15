@@ -4,8 +4,8 @@ Authorization: Basic cGV0ZXI6
 
 {
     "name": "Luke Skywalker",
-    "stardustCollection": 5,
-    "wormholeNavigationSkill": 10,
+    "stardustCollection": -5,
+    "wormholeNavigationSkill": 8,
     "originPlanet": "PlanetX",
     "spacesuitColor": "Silver",
     "department_ID": 1,
