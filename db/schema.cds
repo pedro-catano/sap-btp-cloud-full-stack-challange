@@ -11,7 +11,8 @@ entity GalacticSpacefarer @(restrict: [
     originPlanet : String(50);
     spacesuitColor : String(30);
     department : Association to Department;
-    position : Association to Position;
+    position_ID: Integer;
+    position : Association to Position on position.ID = position_ID and position.department = department;
 }
 
 @cds.odata.valuelist
