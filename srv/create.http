@@ -1,0 +1,13 @@
+POST http://localhost:4004/odata/v4/galactic/Spacefarers HTTP/1.1
+content-type: application/json
+Authorization: Basic cGV0ZXI6
+
+{
+    "name": "Luke Skywalker",
+    "stardustCollection": 5,
+    "wormholeNavigationSkill": 10,
+    "originPlanet": "PlanetX",
+    "spacesuitColor": "Silver",
+    "department_ID": 1,
+    "position_ID": 1
+}

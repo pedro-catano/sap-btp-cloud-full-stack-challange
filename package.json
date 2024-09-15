@@ -15,5 +15,34 @@
   },
   "scripts": {
     "start": "cds-serve"
-  }
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "peter": {
+            "password": "",
+            "roles": [
+              "admin"
+            ],
+            "attr": {
+              "originPlanet": "Pluto"
+            }
+          },
+          "bob": {
+            "attr": {
+              "originPlanet": "PlanetX"
+            }
+          },
+          "fred": {
+            "attr": {
+              "originPlanet": "Pluto"
+            }
+          },
+          "*": false
+        }
+      }
+    }
+  }  
 }
