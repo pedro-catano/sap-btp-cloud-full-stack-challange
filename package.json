@@ -10,11 +10,13 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
     "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.6"
+    "@sap/ux-specification": "^1.124.1"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-galactic-cosmic-application": "cds watch --open galactic-cosmic-application/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -44,5 +46,8 @@
         }
       }
     }
-  }  
+  },
+  "sapux": [
+    "app/galactic-cosmic-application"
+  ]
 }

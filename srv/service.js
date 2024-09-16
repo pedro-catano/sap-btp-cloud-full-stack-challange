@@ -23,7 +23,9 @@ module.exports = (srv) => {
   }
 
   const enhance = (req) => {
-    req.data.stardustCollection += 1;
+    if (req.data.stardustCollection_code < 4) {
+      req.data.stardustCollection_code +=1;
+    }
     req.data.wormholeNavigationSkill += 1;
     req.info("Values increased as a result of the training");
   }
