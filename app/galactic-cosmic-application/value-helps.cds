@@ -1,8 +1,9 @@
 using GalacticService as service from '../../srv/service';
 
 annotate service.Spacefarers with {
-  department @(Common: {
-    ValueList #vlDepartment : {
+
+  department         @(Common: {
+    ValueList #vlDepartment: {
       $Type         : 'Common.ValueListType',
       CollectionPath: 'Departments',
       Parameters    : [
@@ -17,11 +18,9 @@ annotate service.Spacefarers with {
         },
       ],
     }
-  })
-};
+  });
 
-annotate service.Spacefarers with {
-  position @(Common: {
+  position           @(Common: {
     ValueList #vlPosition: {
       $Type         : 'Common.ValueListType',
       CollectionPath: 'Positions',
@@ -42,5 +41,8 @@ annotate service.Spacefarers with {
         },
       ],
     }
-  })
+  });
+
+  stardustCollection @Common.ValueListWithFixedValues;
+
 };
