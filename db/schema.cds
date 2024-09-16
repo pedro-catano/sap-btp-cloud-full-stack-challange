@@ -1,18 +1,29 @@
 namespace galactic.spacefarer;
 
+using { sap.common.CodeList } from '@sap/cds/common';
+
+entity StardustCollection : CodeList {
+    key code : Integer enum {
+            None   = 0;
+            Low    = 1;
+            Medium = 2;
+            High   = 3;
+            Master = 4;
+        };
+}
+
 entity GalacticSpacefarer @(restrict: [
     { grant: '*', to: 'admin'},
     { grant: ['READ', 'WRITE'], where: 'originPlanet = $user.originPlanet'}
 ]) {
     key ID : UUID;
     name : String(100);
-    stardustCollection : Integer default 0;
+    stardustCollection : Association to StardustCollection default 0;
     wormholeNavigationSkill : Integer @assert.range: [1, 10];
     originPlanet : String(50);
     spacesuitColor : String(30);
     department : Association to Department;
-    position_ID: Integer;
-    position : Association to Position on position.ID = position_ID and position.department = department;
+    position : Association to Position;
 }
 
 @cds.odata.valuelist
