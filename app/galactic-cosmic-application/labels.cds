@@ -6,13 +6,13 @@ annotate service.Spacefarers with @title: '{i18n>Specefarers}' {
   originPlanet            @title        : '{i18n>OriginPlanet}';
   wormholeNavigationSkill @title        : '{i18n>WormholeNavigationSkill}';
   spacesuitColor          @title        : '{i18n>SpacesuitColor}';
-  stardustCollection      @title        : '{i18n>StardustCollection}'  @Common.Text: stardustCollection.name  @Common.TextArrangement: #TextOnly;
+  stardustCollection      @title        : '{i18n>StardustCollection}'  @Common.Text: stardustCollection.name  @Common.TextArrangement: #TextLast;
   name                    @title        : '{i18n>Name}';
   status                  @title        : '{i18n>Status}'              @Common.Text: status.name              @Common.TextArrangement: #TextOnly;
 }
 
 annotate service.StardustCollection {
-  code  @Common.Text: name  @Common.TextArrangement: #TextOnly;
+  code  @Common.Text: name  @Common.TextArrangement: #TextLast
 }
 
 annotate service.SpacefarerStatus with {
