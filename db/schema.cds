@@ -17,13 +17,13 @@ entity GalacticSpacefarer @(restrict: [
     { grant: ['READ', 'WRITE'], where: 'originPlanet = $user.originPlanet'}
 ]) {
     key ID : UUID;
-    name : String(100);
-    stardustCollection : Association to StardustCollection default 0;
+    name : String(100) @mandatory;
+    stardustCollection : Association to StardustCollection default 0 @assert.target;
     wormholeNavigationSkill : Integer @assert.range: [1, 10];
     originPlanet : String(50);
     spacesuitColor : String(30);
-    department : Association to Department;
-    position : Association to Position;
+    department : Association to Department @assert.target;
+    position : Association to Position @assert.target;
 }
 
 @cds.odata.valuelist

@@ -1,70 +1,46 @@
 using GalacticService as service from '../../srv/service';
 
-annotate service.Spacefarers with @(
-  UI.FieldGroup #GeneratedGroup: {
-    $Type: 'UI.FieldGroupType',
-    Data : [
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>Name}',
-        Value: name,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>StardustCollection}',
-        Value: stardustCollection_code,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>WormholeNavigationSkill}',
-        Value: wormholeNavigationSkill,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>OriginPlanet}',
-        Value: originPlanet,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>SpacesuitColor}',
-        Value: spacesuitColor,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>Department}',
-        Value: department_ID,
-      },
-      {
-        $Type: 'UI.DataField',
-        Label: '{i18n>Position}',
-        Value: position_ID,
-      },
-    ],
-  },
-  UI.Facets                    : [{
-    $Type : 'UI.ReferenceFacet',
-    ID    : 'GeneratedFacet1',
-    Label : '{i18n>GeneralInformation}',
-    Target: '@UI.FieldGroup#GeneratedGroup',
-  }, ],
-  UI.LineItem                  : [
-    {
-      $Type: 'UI.DataField',
-      Label: '{i18n>Name}',
-      Value: name,
+annotate service.Spacefarers with @UI: {
+  FieldGroup #CosmicDetails: {Data: [
+    {Value: stardustCollection_code},
+    {Value: spacesuitColor}
+  ]},
+  FieldGroup #OtherDetails : {Data: [
+    {Value: name},
+    {Value: wormholeNavigationSkill},
+    {Value: originPlanet},
+    {Value: department_ID},
+    {Value: position_ID}
+  ]},
+  Facets                   : [
+    { // cosmic details
+      $Type : 'UI.ReferenceFacet',
+      ID    : 'CosmicDetails',
+      Target: '@UI.FieldGroup#CosmicDetails',
+      Label : '{i18n>CosmicDetails}'
     },
-    {
-      $Type: 'UI.DataField',
-      Label: '{i18n>StardustCollection}',
-      Value: stardustCollection_code,
-    },
-    {
-      $Type: 'UI.DataField',
-      Label: '{i18n>SpacesuitColor}',
-      Value: spacesuitColor,
+    { // other details
+      $Type : 'UI.ReferenceFacet',
+      ID    : 'OtherDetails',
+      Target: '@UI.FieldGroup#OtherDetails',
+      Label : '{i18n>OtherDetails}'
     }
   ],
-  UI.HeaderInfo                : {
+  LineItem                 : [
+    {
+      Value         : name,
+      @UI.Importance: #High
+    },
+    {
+      Value         : stardustCollection_code,
+      @UI.Importance: #High
+    },
+    {
+      Value         : spacesuitColor,
+      @UI.Importance: #High
+    }
+  ],
+  HeaderInfo               : {
     TypeName      : '{i18n>Spacefarer}',
     TypeNamePlural: '{i18n>Spacefarers}',
     Title         : {
@@ -76,14 +52,14 @@ annotate service.Spacefarers with @(
       Label: '{i18n>OriginPlanet}'
     }
   },
-  UI.PresentationVariant : {
-    Text           : 'Default',
-    Visualizations : ['@UI.LineItem'],
-    SortOrder      : [{
-      $Type      : 'Common.SortOrderType',
-      Property   : name,
-      Descending : false
+  PresentationVariant      : {
+    Text          : 'Default',
+    Visualizations: ['@UI.LineItem'],
+    SortOrder     : [{
+      $Type     : 'Common.SortOrderType',
+      Property  : name,
+      Descending: false
     }],
-    MaxItems: 1
-  },  
-);
+    MaxItems      : 1
+  },
+};

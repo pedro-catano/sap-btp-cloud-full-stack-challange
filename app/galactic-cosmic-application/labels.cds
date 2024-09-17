@@ -5,18 +5,11 @@ annotate service.Spacefarers with @title: '{i18n>Specefarers}' {
   position                @title        : '{i18n>Position}'    @Common.Text: position.title   @Common.TextArrangement: #TextOnly;
   originPlanet            @title        : '{i18n>OriginPlanet}';
   wormholeNavigationSkill @title        : '{i18n>WormholeNavigationSkill}';
+  spacesuitColor          @title        : '{i18n>SpacesuitColor}';
+  stardustCollection      @title        : '{i18n>StardustCollection}' @Common.Text: stardustCollection.name  @Common.TextArrangement: #TextOnly;
+  name                    @title        : '{i18n>Name}';
 }
 
-annotate service.Spacefarers with {
-  stardustCollection  @(Common: {
-    Text           : stardustCollection.name,
-    TextArrangement: #TextOnly
-  })  @Common.ValueListWithFixedValues
-};
-
-annotate service.StardustCollection with {
-  code @(Common: {
-    Text           : name,
-    TextArrangement: #TextOnly
-  })
-};
+annotate service.StardustCollection {
+  code @Common.Text: name @Common.TextArrangement : #TextOnly;
+}
