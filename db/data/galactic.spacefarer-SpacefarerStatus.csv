@@ -1,0 +1,5 @@
+code;name;criticality;fieldControl;createDeleteHidden;insertDeleteRestriction
+C;Candidate;2;7;0;1
+T;Trainee;3;1;1;0
+A;Active;0;1;1;0
+R;Retired;0;1;1;0
