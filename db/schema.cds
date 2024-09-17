@@ -24,6 +24,7 @@ entity GalacticSpacefarer @(restrict: [
     spacesuitColor : String(30);
     department : Association to Department @assert.target;
     position : Association to Position @assert.target;
+    status: Association to SpacefarerStatus;
 }
 
 @cds.odata.valuelist
@@ -42,4 +43,17 @@ entity Position {
     key ID : Integer;
     title : String(100);
     department : Association to Department;    
+}
+
+entity SpacefarerStatus : CodeList {
+    key code                    : String enum {
+            Candidate = 'C';
+            Trainee   = 'T';
+            Active    = 'A';
+            Retired   = 'R';
+        } default 'C'; //> will be used for foreign keys as well
+        criticality             : Integer; //  2: yellow colour,  3: green colour, 0: unknown
+        fieldControl            : Integer @odata.Type: 'Edm.Byte'; // 1: #ReadOnly, 7: #Mandatory
+        createDeleteHidden      : Boolean;
+        insertDeleteRestriction : Boolean; // = NOT createDeleteHidden
 }

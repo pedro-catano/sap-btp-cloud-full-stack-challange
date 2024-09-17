@@ -1,7 +1,7 @@
 module.exports = (srv) => {
 
   const validate = (req) => {
-    const { stardustCollection, wormholeNavigationSkill, originPlanet } = req.data;
+    const { stardustCollection_code, wormholeNavigationSkill, originPlanet } = req.data;
     let msg;
     switch (originPlanet) {
       case "PlanetX":
@@ -10,8 +10,8 @@ module.exports = (srv) => {
         }
         break;
       case "PlanetY":
-        if (stardustCollection > 10 || stardustCollection < 6) {
-          msg = "Valid Stardust Collection value is [6..10]"
+        if (stardustCollection_code > 3 || stardustCollection_code < 2) {
+          msg = "Valid Stardust Collection value is [2..3]"
         }
         break;
       default:
@@ -24,7 +24,7 @@ module.exports = (srv) => {
 
   const enhance = (req) => {
     if (req.data.stardustCollection_code < 4) {
-      req.data.stardustCollection_code +=1;
+      req.data.stardustCollection_code += 1;
     }
     req.data.wormholeNavigationSkill += 1;
     req.info("Values increased as a result of the training");
@@ -35,8 +35,11 @@ module.exports = (srv) => {
     enhance(req)
   });*/
 
-  srv.before('CREATE', 'Spacefarers', (req) => {
+  srv.before(['CREATE', 'UPDATE'], 'Spacefarers', (req) => {
     validate(req)
+  });
+
+  srv.before('CREATE', 'Spacefarers', (req) => {
     enhance(req)
   });
 

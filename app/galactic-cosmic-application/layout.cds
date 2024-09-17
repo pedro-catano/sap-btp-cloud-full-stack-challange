@@ -2,6 +2,7 @@ using GalacticService as service from '../../srv/service';
 
 annotate service.Spacefarers with @UI: {
   FieldGroup #CosmicDetails: {Data: [
+    {Value: status_code},
     {Value: stardustCollection_code},
     {Value: spacesuitColor}
   ]},
@@ -37,6 +38,10 @@ annotate service.Spacefarers with @UI: {
     },
     {
       Value         : spacesuitColor,
+      @UI.Importance: #High
+    },
+    {
+      Value         : status_code,
       @UI.Importance: #High
     }
   ],
