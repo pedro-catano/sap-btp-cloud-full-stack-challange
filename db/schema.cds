@@ -24,7 +24,18 @@ entity GalacticSpacefarer @(restrict: [
     spacesuitColor : String(30);
     department : Association to Department @assert.target;
     position : Association to Position @assert.target;
-    status: Association to SpacefarerStatus;
+    status : Association to SpacefarerStatus;
+    address : Composition of many {
+        key ID: Integer;
+        line: String(100);
+        owner: Association to GalacticSpacefarer;
+    }
+}
+
+entity Address {
+    key ID: Integer;
+    line: String(100);
+    owner: Association to GalacticSpacefarer;
 }
 
 @cds.odata.valuelist

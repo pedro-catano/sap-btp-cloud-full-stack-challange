@@ -25,7 +25,13 @@ annotate service.Spacefarers with @UI: {
       ID    : 'OtherDetails',
       Target: '@UI.FieldGroup#OtherDetails',
       Label : '{i18n>OtherDetails}'
-    }
+    },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Addresses}',
+            ID : 'Address',
+            Target : 'address/@UI.LineItem#Address',
+        },
   ],
   LineItem                 : [
     {
@@ -68,3 +74,8 @@ annotate service.Spacefarers with @UI: {
     MaxItems      : 1
   },
 };
+
+annotate service.Spacefarers.address with @UI: {LineItem #Address: [{
+  Value         : line,
+  @UI.Importance: #High
+}, ], };
