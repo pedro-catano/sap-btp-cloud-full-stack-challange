@@ -1,3 +1,5 @@
+const fs = require('node:fs');
+
 module.exports = (srv) => {
 
   const validate = (req) => {
@@ -29,6 +31,23 @@ module.exports = (srv) => {
     req.data.wormholeNavigationSkill += 1;
     req.info("Values increased as a result of the training");
   }
+
+  const coverImageIsRequested = (req) => {
+    return req?.query?.SELECT?.columns?.[0]?.ref?.[0] === 'image';
+  }
+
+  srv.on('READ', 'Books', (req, next) => {
+    if (coverImageIsRequested(req)) {
+      const readable = fs.createReadStream('images/hero.png');
+      return {
+        value: readable,
+        $mediaContentType: 'image/png',
+        $mediaContentDispositionFilename: 'hero.png', // > optional
+        $mediaContentDispositionType: 'inline' // > optional
+      }
+    }
+    return next()
+  });
 
   /*srv.before('NEW', 'Spacefarers.drafts', (req) => {
     validate(req)

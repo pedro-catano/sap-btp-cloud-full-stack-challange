@@ -57,3 +57,8 @@ entity SpacefarerStatus : CodeList {
         createDeleteHidden      : Boolean;
         insertDeleteRestriction : Boolean; // = NOT createDeleteHidden
 }
+
+entity Books {
+  image : LargeBinary @Core.MediaType: imageType;
+  imageType : String  @Core.IsMediaType;
+}
