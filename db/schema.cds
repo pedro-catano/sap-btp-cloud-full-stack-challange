@@ -59,6 +59,6 @@ entity SpacefarerStatus : CodeList {
 }
 
 entity Books {
-  image : LargeBinary @Core.MediaType: imageType;
-  imageType : String  @Core.IsMediaType;
+    key ID             : Integer;
+        attachmentXlsx : LargeBinary @Core.MediaType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 }

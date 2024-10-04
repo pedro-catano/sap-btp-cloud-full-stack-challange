@@ -32,17 +32,17 @@ module.exports = (srv) => {
     req.info("Values increased as a result of the training");
   }
 
-  const coverImageIsRequested = (req) => {
-    return req?.query?.SELECT?.columns?.[0]?.ref?.[0] === 'image';
+  const attachmentIsRequested = (req) => {
+    return req?.query?.SELECT?.columns?.[0]?.ref?.[0] === 'attachmentXlsx';
   }
 
   srv.on('READ', 'Books', (req, next) => {
-    if (coverImageIsRequested(req)) {
-      const readable = fs.createReadStream('images/hero.png');
+    if (attachmentIsRequested(req)) {
+      const readable = fs.createReadStream('files/test.xlsx');
       return {
         value: readable,
-        $mediaContentType: 'image/png',
-        $mediaContentDispositionFilename: 'hero.png', // > optional
+        $mediaContentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        $mediaContentDispositionFilename: 'test.xlsx', // > optional
         $mediaContentDispositionType: 'inline' // > optional
       }
     }
