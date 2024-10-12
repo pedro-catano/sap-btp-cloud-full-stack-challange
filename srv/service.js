@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 
+const cds = require('@sap/cds');
+
 module.exports = (srv) => {
 
   const validate = (req) => {
@@ -54,8 +56,9 @@ module.exports = (srv) => {
     enhance(req)
   });*/
 
-  srv.before(['CREATE', 'UPDATE'], 'Spacefarers', (req) => {
+  srv.before(['CREATE', 'UPDATE'], 'Spacefarers', async (req) => {
     validate(req)
+    const s = await cds.run(SELECT(['name']).from('galactic.spacefarer.GalacticSpacefarer').where({ birthDate: { '>=': new Date('2025-01-01') } }));
   });
 
   srv.before('CREATE', 'Spacefarers', (req) => {

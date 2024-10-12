@@ -25,6 +25,7 @@ entity GalacticSpacefarer @(restrict: [
     department : Association to Department @assert.target;
     position : Association to Position @assert.target;
     status: Association to SpacefarerStatus;
+    birthDate: DateTime;
 }
 
 @cds.odata.valuelist

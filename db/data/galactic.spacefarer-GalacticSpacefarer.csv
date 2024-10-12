@@ -1,4 +1,4 @@
-ID,name,stardustCollection_code,wormholeNavigationSkill,originPlanet,spacesuitColor,department_ID,position_ID,status_code
-e4edabc3-eec7-49f2-92c8-f6be96f57ed9,Peter,1,1,Pluto,Red,2,4,C
-e4edabc3-eec7-49f2-92c8-f6be96f57ee9,Bendeguz,1,1,PlanetX,White,2,4,T
-e4edabc3-eec7-49f2-92c8-f6be96f57ef9,Zeteny,1,1,PlanetY,White,2,4,A
+ID,name,stardustCollection_code,wormholeNavigationSkill,originPlanet,spacesuitColor,department_ID,position_ID,status_code,birthDate
+e4edabc3-eec7-49f2-92c8-f6be96f57ed9,Peter,1,1,Pluto,Red,2,4,C,1984-07-30
+e4edabc3-eec7-49f2-92c8-f6be96f57ee9,Bendeguz,1,1,PlanetX,White,2,4,T,2023-07-10
+e4edabc3-eec7-49f2-92c8-f6be96f57ef9,Zeteny,1,1,PlanetY,White,2,4,A,2025-02-03
