@@ -1,0 +1,11 @@
+code,locale,name
+0,en,None
+0,de,Keine
+1,en,Low
+1,de,Niedrig
+2,en,Medium
+2,de,Mittel
+3,en,High
+3,de,Hoch
+4,en,Master
+4,de,Meister
